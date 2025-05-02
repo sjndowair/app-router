@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <header>나는 글로벌해더</header>
+        <header>해더영역</header>
         <main>{children}</main>
-        <footer>나는 글로벌 푸터</footer>
+        <footer>푸터영역</footer>
       </body>
     </html>
   );
