@@ -1,11 +1,17 @@
 import React from "react";
+import SearchBar from "./searchBar";
 
 const SearchLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <div>임시 서치 바{children}</div>;
+  return (
+    <div>
+      <SearchBar />
+      {children}
+    </div>
+  );
 };
 
 export default SearchLayout;
