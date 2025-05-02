@@ -22,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <header>나는 글로벌해더</header>
+        <main>{children}</main>
+        <footer>나는 글로벌 푸터</footer>
+      </body>
     </html>
   );
 }
