@@ -6,6 +6,10 @@ const SearchBar = () => {
   const [value, setValue] = useState<string>("");
   console.log(value);
 
+  //   const onClickSearch = (e: React.) => {
+
+  //   }
+
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
   };
