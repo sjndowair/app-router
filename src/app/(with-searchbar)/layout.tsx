@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./searchBar";
-import ClientComponent from "./\bclient-component";
-import ServerComponent from "./server-component";
+import SearchBar from "../components/searchBar";
+import ClientComponent from "../components/client-component/index";
+import ServerComponent from "../components/server-component";
 const SearchLayout = ({
   children,
 }: Readonly<{

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -23,7 +24,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <header>해더영역</header>
+        <header>
+          <Link href={`/`}>index</Link>
+          <br />
+          <Link href={`/search`}>search</Link>
+          <br />
+          <Link href={`/book/1`}>book/1</Link>
+        </header>
         <main>{children}</main>
         <footer>푸터영역</footer>
       </body>
