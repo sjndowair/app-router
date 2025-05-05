@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./searchBar";
 import ClientComponent from "./\bclient-component";
+import ServerComponent from "./server-component";
 const SearchLayout = ({
   children,
 }: Readonly<{
@@ -8,7 +9,9 @@ const SearchLayout = ({
 }>) => {
   return (
     <div>
-      <ClientComponent />
+      <ClientComponent>
+        <ServerComponent />
+      </ClientComponent>
       <SearchBar />
       {children}
     </div>
