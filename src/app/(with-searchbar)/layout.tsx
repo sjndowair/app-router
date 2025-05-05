@@ -1,21 +1,15 @@
-import React from "react";
-import SearchBar from "../components/searchBar";
-import ClientComponent from "../components/client-component/index";
-import ServerComponent from "../components/server-component";
-const SearchLayout = ({
+import { ReactNode } from "react";
+import Searchbar from "../../components/searchbar";
+
+export default function Layout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+}: {
+  children: ReactNode;
+}) {
   return (
     <div>
-      <ClientComponent>
-        <ServerComponent />
-      </ClientComponent>
-      <SearchBar />
+      <Searchbar />
       {children}
     </div>
   );
-};
-
-export default SearchLayout;
+}

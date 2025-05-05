@@ -29,7 +29,7 @@ const SearchBar = () => {
         value={value}
         onChange={onChangeValue}
         type={`text`}
-      />{" "}
+      />
       <button onClick={onClickSearch} type="submit">
         검색
       </button>
