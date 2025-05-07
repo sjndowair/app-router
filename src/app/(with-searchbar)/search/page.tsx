@@ -8,9 +8,9 @@ export default async function Page({
   searchParams: Promise<{ q?: string }>;
 }) {
 
-  const q = await searchParams
+  const q = (await searchParams).q
  
- const booksData =  await getSearchBookData(q?.q || "");
+ const booksData =  await getSearchBookData(q || "");
 
   return (
     <div>

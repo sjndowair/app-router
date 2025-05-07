@@ -1,5 +1,6 @@
 import style from "./page.module.css";
 import {getNowBookData} from "@/api/getBookData"
+import Image from "next/image";
 
 
 export default async function Page({
@@ -9,7 +10,7 @@ export default async function Page({
 }) {
   const { id } = await params;
 
- const response = await getNowBookData(id as string)
+ const response = await getNowBookData(id as string);
 
   const { title, subTitle, description, author, publisher, coverImgUrl } = response
 
@@ -19,7 +20,7 @@ export default async function Page({
         className={style.cover_img_container}
         style={{ backgroundImage: `url('${coverImgUrl}')` }}
       >
-        <img src={coverImgUrl} />
+        <img src={coverImgUrl} alt={title} />
       </div>
       <div className={style.title}>{title}</div>
       <div className={style.subTitle}>{subTitle}</div>

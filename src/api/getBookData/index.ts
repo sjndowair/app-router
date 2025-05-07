@@ -1,9 +1,7 @@
-import { BookData } from "@/types";
-
 export const getBookData = async (data: string) => {
-    let API_URL = data ? `${process.env.NEXT_PUBLIC_API_URL}/book/${data}` : `${process.env.NEXT_PUBLIC_API_URL}/book`
+    const API_URL = data ? `${process.env.NEXT_PUBLIC_API_URL}/book/${data}` : `${process.env.NEXT_PUBLIC_API_URL}/book`
     try{
-        const res = await fetch(API_URL)
+        const res = await fetch(API_URL, {cache: "force-cache"})
         return res.json();
       }catch(e){
         console.error(e)
@@ -14,7 +12,7 @@ export const getBookData = async (data: string) => {
 
 export const getSearchBookData = async (id: string) => {
     
-   let API_URL = `${process.env.NEXT_PUBLIC_API_URL}/book/search?q=${id}`
+   const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/book/search?q=${id}`
    try{
     const res = await fetch(API_URL)
     if(!res.ok) throw new Error("에러 발생")
@@ -26,7 +24,7 @@ export const getSearchBookData = async (id: string) => {
 }
 
 export const getNowBookData = async (bookId: string) => {
-    let API_URL = `${process.env.NEXT_PUBLIC_API_URL}/book/${bookId}`
+    const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/book/${bookId}`
     try{
         const res = await fetch(API_URL)
         if(!res.ok) throw new Error("에러발생")
