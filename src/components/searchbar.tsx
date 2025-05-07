@@ -10,7 +10,7 @@ export default  function Searchbar() {
   const [search, setSearch] = useState("");
 
   const q =  searchParams.get("q");
-  console.log(q);
+
 
   useEffect(() => {
     setSearch(q || "");
