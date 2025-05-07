@@ -1,8 +1,14 @@
 export const getBookData = async (data: string) => {
     const API_URL = data ? `${process.env.NEXT_PUBLIC_API_URL}/book/${data}` : `${process.env.NEXT_PUBLIC_API_URL}/book`
     try{
-        const res = await fetch(API_URL, {cache: "force-cache"})
-        return res.json();
+        if(data){
+            const res = await fetch(API_URL, {next: {revalidate: 3}})    
+            return res.json()
+        } else if(data === ""){
+            const res =await fetch(API_URL, {cache: "force-cache"})
+            return res.json()
+        }
+        
       }catch(e){
         console.error(e)
         return []
