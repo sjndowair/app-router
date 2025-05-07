@@ -7,6 +7,7 @@ export default async function Page({
   searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
+  console.log(q)
 
   return (
     <div>
