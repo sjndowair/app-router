@@ -1,33 +1,25 @@
-
-import BookItem from "@/components/book-item";
 import style from "./page.module.css";
-import {getBookData} from "@/api/getBookData"
-import { BookData } from "@/types";
+import AllBooks from "../components/allBooks";
+import RandomBooks from "../components/randomBooks";
+import { Suspense } from "react";
+import BookList from "../components/load/book-list";
 
 
 
-export default async function Home() {
+
+export default function Home() {
  
-
-  const allBooks = await getBookData("");
-  const randomBooks = await getBookData("random")
 
   
 
   return (
     <div className={style.container}>
-      <section>
-        <h3>지금 추천하는 도서</h3>
-        {randomBooks.map((book: BookData) => (
-          <BookItem key={book.id} {...book} />
-        ))}
-      </section>
-      <section>
-        <h3>등록된 모든 도서</h3>
-        {allBooks.map((book: BookData) => (
-          <BookItem key={book.id} {...book} />
-        ))}
-      </section>
+      <Suspense fallback={<BookList count={3} />}>
+     <AllBooks />
+     </Suspense>
+     <Suspense fallback={<BookList count={10} />}>
+      <RandomBooks />
+      </Suspense>
     </div>
   );
 }
