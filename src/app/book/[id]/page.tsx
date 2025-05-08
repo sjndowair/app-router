@@ -3,6 +3,10 @@ import {getNowBookData} from "@/api/getBookData"
 import Image from "next/image";
 
 
+export const generateStaticParams = () => {
+    return [{ id: "1" }, { id: "2" }];
+}
+
 export default async function Page({
   params,
 }: {
