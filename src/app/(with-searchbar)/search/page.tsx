@@ -2,10 +2,9 @@ import BookItem from "@/components/book-item";
 import { BookData } from "@/types";
 import { getSearchBookData } from "@/api/getBookData";
 import delay from "@/util/delay";
-
-
-
-// export const dynamic = "error"; 
+import SearchResult from "./searchResult";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default async function Page({
   searchParams,
@@ -13,17 +12,10 @@ export default async function Page({
   searchParams: Promise<{ q?: string }>;
 }) {
 
-  await delay(3000);
-
-  const q = (await searchParams).q
- 
- const booksData =  await getSearchBookData(q || "");
+  const q = (await searchParams).q;
 
   return (
-    <div>
-      {booksData.map((book: BookData) => (
-        <BookItem key={book.id} {...book} />
-      ))}
-    </div>
-  );
+    <Suspense key={q} fallback={<Loading />}>
+  <SearchResult q={q || ""} />
+  </Suspense>)
 }
