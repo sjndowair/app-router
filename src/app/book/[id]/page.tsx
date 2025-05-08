@@ -3,6 +3,8 @@ import {getNowBookData} from "@/api/getBookData"
 import Image from "next/image";
 
 
+export const dynamicParams = true;
+
 export const generateStaticParams = () => {
     return [{ id: "1" }, { id: "2" }];
 }

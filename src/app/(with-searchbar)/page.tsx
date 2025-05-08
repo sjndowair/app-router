@@ -4,6 +4,8 @@ import style from "./page.module.css";
 import {getBookData} from "@/api/getBookData"
 import { BookData } from "@/types";
 
+
+
 export default async function Home() {
  
 
