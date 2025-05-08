@@ -20,7 +20,7 @@ export const getSearchBookData = async (id: string) => {
     
    const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/book/search?q=${id}`
    try{
-    const res = await fetch(API_URL)
+    const res = await fetch(API_URL, {cache: "force-cache"})
     if(!res.ok) throw new Error("에러 발생")
     return res.json()
    }catch(e){
