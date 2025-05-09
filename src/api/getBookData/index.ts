@@ -1,4 +1,4 @@
-import { ISendBokkReviewDataProps } from "@/types"
+import { ISendBookReviewDataProps, IGetBookReviewDataProps } from "@/types"
 
 export const getBookData = async (data: string) => {
     const API_URL = data ? `${process.env.NEXT_PUBLIC_API_URL}/book/${data}` : `${process.env.NEXT_PUBLIC_API_URL}/book`
@@ -45,7 +45,7 @@ export const getNowBookData = async (bookId: string) => {
    
     
 
-export const sendBookReviewData = async ({bookId, content, author}: ISendBokkReviewDataProps) => {
+export const sendBookReviewData = async ({bookId, content, author}: ISendBookReviewDataProps) => {
     const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/review`
     try{
         const res = await fetch(API_URL, {
@@ -56,6 +56,20 @@ export const sendBookReviewData = async ({bookId, content, author}: ISendBokkRev
     }catch(err){
         console.error(err)
         return;
+    }
+
+}
+
+export const getBookReviewData = async (bookId: string | number) => {
+    const API_URL  = `${process.env.NEXT_PUBLIC_API_URL}/review/book/${bookId}`
+    try{
+        const res = await fetch(API_URL)
+        
+        console.log(res.status)
+        return res.json()
+    }catch(err){
+        console.error(err)
+        return []
     }
 
 }

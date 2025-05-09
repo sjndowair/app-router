@@ -1,4 +1,5 @@
 import { createReviewAction } from "@/action";
+import { getBookReviewData } from "@/api/getBookData";
 
 
 const Review = ({bookId}: {

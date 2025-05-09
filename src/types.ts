@@ -9,9 +9,19 @@ export interface BookData {
 }
 
 
-export interface ISendBokkReviewDataProps {
+export interface ISendBookReviewDataProps {
   bookId: string;
   content: string;
   author: string
 
 }
+
+export interface IGetBookReviewDataProps {
+  id: number;
+  content: string;
+  author: string;
+  createAt:string;
+  bookId: number
+}
+
+
