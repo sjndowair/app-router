@@ -1,6 +1,6 @@
 import style from "./page.module.css";
 import {getNowBookData} from "@/api/getBookData"
-import Image from "next/image";
+
 
 
 export const dynamicParams = true;

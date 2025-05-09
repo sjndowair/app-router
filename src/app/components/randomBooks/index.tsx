@@ -8,7 +8,7 @@ import delay from "@/util/delay";
 
 export default async function RandomBooks() {
  
-  await delay(1500)
+  await delay(1000)
   
   const randomBooks = await getBookData("random")
 

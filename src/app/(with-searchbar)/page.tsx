@@ -5,13 +5,7 @@ import { Suspense } from "react";
 import BookList from "../components/load/book-list";
 
 
-
-
 export default function Home() {
- 
-
-  
-
   return (
     <div className={style.container}>
       <Suspense fallback={<BookList count={3} />}>

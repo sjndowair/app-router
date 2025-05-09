@@ -4,7 +4,7 @@ import { BookData } from "@/types";
 import { getSearchBookData } from "@/api/getBookData";
 
 const SearchResult = async ({q}: {q: string}) => {
-    await delay(1000);
+    await delay(500);
 
    
    const booksData =  await getSearchBookData(q || "");
