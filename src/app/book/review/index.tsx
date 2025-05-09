@@ -1,18 +1,11 @@
-import { sendBookReviewData } from "@/api/getBookData"
-
+import { createReviewAction } from "@/action";
 
 
 const Review = ({bookId}: {
     bookId: string
 }) => {
    
-const createReviewAction = async (formData: FormData) => {
-    'use server'
-    const content = formData.get("content")?.toString() as string;
-    const author = formData.get("author")?.toString() as string
-    console.log(content, author)
-    await sendBookReviewData({bookId, content, author});
-}
+
 
     return (<div>
         <form action={createReviewAction}>
