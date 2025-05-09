@@ -1,5 +1,5 @@
 import BookDetail from "../bookDetail";
-import Review from "../bookDetail/review";
+import Review from "../review";
 
 
 
@@ -15,7 +15,7 @@ export default async function Page({
   return (
     <>
       <BookDetail bookId={id as string} />
-      <Review />
+      <Review bookId={id as string} />
     </>
   );
 }

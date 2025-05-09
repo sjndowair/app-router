@@ -7,3 +7,11 @@ export interface BookData {
   description: string;
   coverImgUrl: string;
 }
+
+
+export interface ISendBokkReviewDataProps {
+  bookId: string;
+  content: string;
+  author: string
+
+}
