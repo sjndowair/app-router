@@ -1,4 +1,4 @@
-import { getBookReviewData } from "@/api/getBookData"
+import style from "./style.module.css"
 import {IGetBookReviewDataProps} from "@/types"
 
 
@@ -22,7 +22,7 @@ const ReviewList =  ({isBookReviewData }: {
                     <div key={review?.id} >
                         <h4>{review?.author}</h4>
                         <p>{review?.createAt}</p>
-                    <p>{review.content}</p>       
+                      <p>{review.content}</p>       
                 </div>
                 )
                

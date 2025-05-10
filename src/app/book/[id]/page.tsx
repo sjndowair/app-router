@@ -5,6 +5,7 @@ import { getBookReviewData } from "@/api/getBookData";
 
 
 
+
 export default async function Page({
   params,
 }: {
@@ -20,8 +21,10 @@ export default async function Page({
   return (
     <>
       <BookDetail bookId={id as string} />
+      <div style={{marginTop: "3rem"}} >
       <Review bookId={id as string} />
       <ReviewList isBookReviewData={isBookReviewData}  />
+      </div>
     </>
   );
 }
