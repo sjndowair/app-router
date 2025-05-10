@@ -2,3 +2,30 @@
     margin-top:3rem;
     
 }
+
+.reviewContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.reviewTitle{
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.reviewBox{
+    background-color: rgb(230, 230, 230);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+
+.reviewDate{
+    color: gray;
+    font-size: 0.75rem;
+    font-weight: 100;
+    font-style: italic;
+}
+ 
