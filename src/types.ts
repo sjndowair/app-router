@@ -20,8 +20,8 @@ export interface IGetBookReviewDataProps {
   id: number;
   content: string;
   author: string;
-  createAt:string;
-  bookId: number
+  createdAt?: string;
+  bookId: number;
 }
 
 
