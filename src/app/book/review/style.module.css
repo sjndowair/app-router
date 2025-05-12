@@ -1,0 +1,32 @@
+.reviewTextarea {
+    resize: vertical;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 0.75rem;
+}
+
+.reviewInput {
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    flex: 1;
+}
+
+.reviewButton {
+   padding: 1rem;
+   width: 5rem;
+   background-color: rgb(37, 147, 237);
+   border: none;
+   color: white;
+   margin-left: 0.5rem;
+   border-radius: 0.25rem;
+   cursor: pointer;
+}
+
+.reviewContainer{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+}

@@ -4,21 +4,32 @@
 }
 
 .reviewContainer{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 기본적으로 2열로 표시 */
     gap: 1.25rem;
+    row-gap: 3.25rem;   
+}
+
+/* 화면 너비가 700px 이하일 때 1열로 변경 */
+@media (max-width: 700px) {
+    .reviewContainer {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+    }
 }
 
 .reviewTitle{
     font-size: 1.25rem;
     margin-bottom: 2rem;
     font-weight: 700;
+    grid-column: 1 / -1; /* 제목은 전체 너비를 차지 */
 }
 
 .reviewBox{
+    
     background-color: rgb(230, 230, 230);
     padding: 1.25rem;
     border-radius: 0.5rem;
+    height: 100%; /* 높이를 100%로 설정하여 같은 행의 박스들이 동일한 높이를 갖도록 함 */
 }
 
 
@@ -28,4 +39,3 @@
     font-weight: 100;
     font-style: italic;
 }
- 
