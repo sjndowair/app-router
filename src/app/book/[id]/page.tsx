@@ -4,6 +4,10 @@ import ReviewList from "../reviewList";
 import { getBookReviewData } from "@/api/getBookData";
 
 
+export const generateStaticParams = async () => {
+  return [{ id: "1" }, { id: "2" }];
+}
+
 
 
 export default async function Page({

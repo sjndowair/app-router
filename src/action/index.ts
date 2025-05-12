@@ -1,7 +1,7 @@
 "use server";
 
 import { sendBookReviewData } from "@/api/getBookData";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 export const createReviewAction = async (formData: FormData) => {
   
@@ -12,7 +12,9 @@ export const createReviewAction = async (formData: FormData) => {
     if(!bookId || !content || !author )  return 
     console.log(content, author)
     await sendBookReviewData({bookId, content, author});
-    revalidatePath(`/book/${bookId}`)
+    // revalidatePath(`/book/${bookId}`)
+    revalidateTag(`review-${bookId}`)
+    console.log("리뷰 작성 완료")
     }catch(err){
         console.error(err)
         return;

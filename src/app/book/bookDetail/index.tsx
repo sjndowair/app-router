@@ -4,10 +4,6 @@ import {getNowBookData} from "@/api/getBookData"
 
 export const dynamicParams = true;
 
-export const generateStaticParams = () => {
-    return [{ id: "1" }, { id: "2" }];
-}
-
 
 const BookDetail = async ({bookId}: {
     bookId: string

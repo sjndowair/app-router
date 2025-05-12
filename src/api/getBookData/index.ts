@@ -1,4 +1,4 @@
-import { ISendBookReviewDataProps, IGetBookReviewDataProps } from "@/types"
+import { ISendBookReviewDataProps } from "@/types"
 
 export const getBookData = async (data: string) => {
     const API_URL = data ? `${process.env.NEXT_PUBLIC_API_URL}/book/${data}` : `${process.env.NEXT_PUBLIC_API_URL}/book`
@@ -63,7 +63,7 @@ export const sendBookReviewData = async ({bookId, content, author}: ISendBookRev
 export const getBookReviewData = async (bookId: string | number) => {
     const API_URL  = `${process.env.NEXT_PUBLIC_API_URL}/review/book/${bookId}`
     try{
-        const res = await fetch(API_URL)
+        const res = await fetch(API_URL, {next: {tags: [`review-${bookId}`]}})
         
         console.log(res.status)
         return res.json()
