@@ -63,7 +63,7 @@ export const sendBookReviewData = async ({bookId, content, author}: ISendBookRev
 
 }
 
-export const getBookReviewData = async (bookId: string | number) => {
+export const getBookReviewData = async (bookId: string) => {
     const API_URL  = `${process.env.NEXT_PUBLIC_API_URL}/review/book/${bookId}`
     try{
         const res = await fetch(API_URL, {next: {tags: [`review-${bookId}`]}})
@@ -78,15 +78,18 @@ export const getBookReviewData = async (bookId: string | number) => {
 
 }
 
-export const deleteReivewData = async (reviewId: string, bookId: string | number) => {
+export const deleteReivewData = async (reviewId: string, bookId: string ) => {
     const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/review/${reviewId}`
     try{
         const res = await fetch(API_URL, {
             method: "DELETE",
-            next: {tags: [`review-${bookId}`]}
         })
         if(!res.ok) throw new Error(res.statusText);
-            return res.json();
+            return {
+                status: true,
+                message: "리뷰삭제완료"
+            }
+            //delete매서드 사용 시에는 return res.json()를 사용하지 않아도됨 사용시 오류 발생
         
     }catch(err){
         console.error(err)
