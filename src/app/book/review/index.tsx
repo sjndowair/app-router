@@ -2,7 +2,7 @@
 
 import { createReviewAction } from "@/action";
 import style from "./style.module.css"
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 
 
 const Review = ({bookId}: {
@@ -13,8 +13,14 @@ const Review = ({bookId}: {
         createReviewAction,
         null)
 
-        console.log(state)
+        useEffect(() => {
+            if(state && !state.status){
+                alert(state.error)
+            }
+        },[state])
 
+
+     console.log(state)
 
     return (<div>
         <form action={formAction}>

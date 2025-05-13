@@ -1,6 +1,6 @@
 "use client"
 import style from "./style.module.css"
-
+import ReviewDeleteButton from "@/app/components/reviewDeleteButton"
 import {IGetBookReviewDataProps} from "@/types"
 
 
@@ -23,8 +23,10 @@ const ReviewList =  ({isBookReviewData }: {
                         <h4>{review?.author}</h4>
                         <p>{review.content}</p>       
                         <br />
+                        <div className={style.flex}>
                         <p className={style.reviewDate}>{reviewDate(review?.createdAt)}</p>
-                
+                        <div><ReviewDeleteButton bookId={review.bookId} reviewId={review.id} /></div>
+                        </div>
                 </div>
                 )
                

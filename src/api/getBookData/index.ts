@@ -75,4 +75,21 @@ export const getBookReviewData = async (bookId: string | number) => {
         return []
     }
 
+
+}
+
+export const deleteReivewData = async (reviewId: string, bookId: string | number) => {
+    const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/review/${reviewId}`
+    try{
+        const res = await fetch(API_URL, {
+            method: "DELETE",
+            next: {tags: [`review-${bookId}`]}
+        })
+        if(!res.ok) throw new Error(res.statusText);
+            return res.json();
+        
+    }catch(err){
+        console.error(err)
+        return []
+    }
 }

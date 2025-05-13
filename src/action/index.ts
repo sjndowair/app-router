@@ -1,6 +1,6 @@
 "use server";
 
-import { sendBookReviewData } from "@/api/getBookData";
+import { sendBookReviewData, deleteReivewData } from "@/api/getBookData";
 import { revalidatePath, revalidateTag } from "next/cache";
 
 
@@ -19,7 +19,6 @@ export const createReviewAction = async (state: any ,formData: FormData) => {
     
     await sendBookReviewData({bookId, content, author});
     revalidateTag(`review-${bookId}`)
-    
     return {
         status: true,
         message: "리뷰 작성 완료"
@@ -34,4 +33,30 @@ export const createReviewAction = async (state: any ,formData: FormData) => {
         }
     }
     
+}
+
+export const deleteReviewAction = async (state: any, formData: FormData) => {
+    const reviewId = formData.get("reviewId")?.toString();
+    const bookId = formData.get("bookId")?.toString();
+    if(!reviewId){
+        return {
+            status: false,
+            error: "리뷰 아이디가 존재하지 않습니다."
+        }
+    }
+try{
+    await deleteReivewData(reviewId, bookId as string);
+    console.log("리뷰 삭제 완료")
+    revalidateTag(`review-${bookId}`)
+    return {
+        status: true,
+        message: "리뷰 삭제 완료"
+    }
+}catch(err){
+    return {
+        status: false,
+        error: `리뷰 데이터를 정상적으로 삭제하지 못하였습니다. ${err}`
+    }
+}
+
 }
