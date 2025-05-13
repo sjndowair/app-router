@@ -1,4 +1,4 @@
-
+"use client"
 import style from "./style.module.css"
 
 import {IGetBookReviewDataProps} from "@/types"
@@ -12,8 +12,7 @@ const ReviewList =  ({isBookReviewData }: {
         return data ? new Date(data).toLocaleDateString() : "";
     }
 
-
-    
+      
     return (
         <div className={style.reviewContainer}>
             <h3 className={style.reviewTitle}>리뷰 목록</h3>

@@ -52,6 +52,9 @@ export const sendBookReviewData = async ({bookId, content, author}: ISendBookRev
             method: "POST",
             body: JSON.stringify({bookId, content, author})
         })
+        if(!res.ok){
+            throw new Error(res.statusText)
+        } 
        console.log(res?.status)
     }catch(err){
         console.error(err)
