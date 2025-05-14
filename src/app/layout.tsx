@@ -5,8 +5,10 @@ import Footer from "@/components/Footer/index"
 
 export default function RootLayout({
   children,
+  modal
 }: Readonly<{
   children: React.ReactNode;
+  modal?: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -18,7 +20,10 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
+        {modal}
+        <div className="modal-root"></div>
       </body>
+
     </html>
   );
 }

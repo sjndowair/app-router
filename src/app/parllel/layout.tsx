@@ -15,8 +15,9 @@ const Layout = ({children, sidebar, feed}: {
         <Link href={`/parllel/setting`}>Settings</Link>
         </div>
             <div>{sidebar}</div>
-            <div>{feed}</div>
             <div>{children}</div>
+            <div>{feed}</div>
+            
         </>
     )
 }
