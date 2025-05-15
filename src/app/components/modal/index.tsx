@@ -23,7 +23,6 @@ const Modal = ({children}: {
 
 
     return createPortal(
-    
     <dialog
      onClose={() => {
         router.back()
