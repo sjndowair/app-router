@@ -8,7 +8,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "한입 북스",
-  description: "한입 북스에 등록 된 도서를 만나보세요."
+  description: "한입 북스에 등록 된 도서를 만나보세요.",
+  openGraph: {
+    title: "한입 북스",
+    description: "한입 북스에 등록 된 도서를 만나보세요.",
+    images: ["/thumbnail.png"]
+  }
 }
 
 export default function Home() {

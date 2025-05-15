@@ -1,7 +1,8 @@
+import { BookData } from "@/types";
 import BookDetail from "../bookDetail";
 import Review from "../review";
 import ReviewList from "../reviewList";
-import { getBookReviewData } from "@/api/getBookData";
+import { getBookReviewData, getNowBookData } from "@/api/getBookData";
 
 
 export const generateStaticParams = async () => {
@@ -10,12 +11,37 @@ export const generateStaticParams = async () => {
 
 
 
+export const generateMetadata = async ({params}: {
+  params: Promise<{id: string}>
+}) => {
+  const { id } = await params
+  const res = await getNowBookData(id)
+  const { title, author, coverImgUrl, description, publisher, subTitle }: BookData = res
+  
+  return {
+    title: `${title}의 리뷰    `,
+    description: `${title}의 리뷰입니다.`,
+    openGraph: {
+      title: `${title}의 리뷰`,
+      description: `${title}의 리뷰입니다.`,
+      
+  }
+  
+ 
+}
+
+  
+}
+
+
 export default async function Page({
   params,
 }: {
   params: Promise<{ id: string | string[] }>;
 }) {
   const { id } = await params ;
+
+  
   
   const isBookReviewData = await getBookReviewData(id as string)
   
