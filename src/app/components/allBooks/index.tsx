@@ -2,14 +2,14 @@
 import BookItem from "@/components/book-item";
 import {getBookData} from "@/api/getBookData"
 import { BookData } from "@/types";
-import delay from "@/util/delay";
+
 
 
 
 export default async function AllBooks() {
 
   try{
-    await delay(500) 
+    
   const allBooks = await getBookData("");
   return (
     <section>

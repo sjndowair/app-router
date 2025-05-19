@@ -2,13 +2,13 @@
 import BookItem from "@/components/book-item";
 import {getBookData} from "@/api/getBookData"
 import { BookData } from "@/types";
-import delay from "@/util/delay";
+
 
 
 
 export default async function RandomBooks() {
  
-  await delay(1000)
+  
   
   const randomBooks = await getBookData("random")
 
